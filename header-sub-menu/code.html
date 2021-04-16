@@ -1,0 +1,56 @@
+
+	<style type="text/css">
+		@media only screen and (max-width: 767px){
+			.header-block .menu-item-has-children > a::after{
+				content:' +' !important;
+				display: inline-block !important;
+				margin-left: 20px;
+				font-size: inherit;
+				line-height: inherit;
+				vertical-align: middle;
+				position: relative !important;
+				top: -4px !important;
+				border: none !important;
+				width: auto !important;
+				height: auto !important;
+				padding:0 !important;
+				height: auto !important;
+				margin-left: 20px !important;
+			}
+			.header-block .menu-item-has-children.open > a::after,
+			.header-block .menu-item-has-children.open:hover > a::after,
+			.header-block .menu-item-has-children.open:focus > a::after,
+			.header-block .menu-item-has-children.open > a::after{
+				content:' »' !important;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		function newScript(){
+			var 
+				winWidth = window.innerWidth;
+				listItem = document.querySelectorAll('.header-block .menu-item-has-children');
+
+			function getWindowWidth() {
+				winWidth = window.innerWidth;
+			}
+			window.addEventListener('resize', getWindowWidth);
+
+
+			function toggleClickEvent(){
+				if (!this.classList.contains('open')) {
+					event.preventDefault();	
+					this.classList.add('open');
+
+				}
+
+			}
+			for (var i = listItem.length - 1; i >= 0; i--) {
+				listItem[i].addEventListener('click', toggleClickEvent);
+
+			}
+			// 
+		}
+
+        document.addEventListener("DOMContentLoaded", newScript);
+	</script>
